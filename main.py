@@ -36,6 +36,8 @@ def main(alpha_value, solver_value):
     print(f"Mean Squared Error: {mse:.4f}")
     print(f"R^2 Score: {r2:.4f}")
 
+ 
+
     # Set our tracking server URI (if needed)
     # mlflow.set_tracking_uri()
     mlflow.tracking.set_tracking_uri("https://dagshub.com/built-by-dhruv/MlFlow.mlflow")
@@ -43,9 +45,9 @@ def main(alpha_value, solver_value):
     # Create a new MLflow Experiment
     mlflow.set_experiment("MLflow Ridge Regression Quickstart")
 
-    dagshub_token = os.getenv("DAGSHUB_TOKEN")
-    print(dagshub_token)
-    dagshub.login(dagshub_token)  
+    
+# set MLFLOW_TRACKING_USERNAME=built-by-dhruv
+# set MLFLOW_TRACKING_PASSWORD=4df4d4552b3d66f9690f992546eee59f89a22356
 
     dagshub.init(repo_owner='built-by-dhruv', repo_name='MlFlow', mlflow=True)
     # Start an MLflow run
