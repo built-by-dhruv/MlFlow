@@ -37,12 +37,14 @@ def main(alpha_value, solver_value):
 
     # Set our tracking server URI (if needed)
     # mlflow.set_tracking_uri()
+    mlflow.tracking.set_tracking_uri("https://dagshub.com/built-by-dhruv/MlFlow.mlflow")
 
     # Create a new MLflow Experiment
     mlflow.set_experiment("MLflow Ridge Regression Quickstart")
 
-    mlflow.tracking.set_tracking_uri("https://dagshub.com/built-by-dhruv/MlFlow.mlflow")
-    
+    import os
+    dagshub.login(os.getenv("DAGSHUB_TOKEN"))  
+
     dagshub.init(repo_owner='built-by-dhruv', repo_name='MlFlow', mlflow=True)
     # Start an MLflow run
     with mlflow.start_run():
