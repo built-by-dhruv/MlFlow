@@ -1,4 +1,5 @@
 import argparse
+import os
 import mlflow
 from mlflow.models import infer_signature
 import mlflow.tracking
@@ -42,8 +43,9 @@ def main(alpha_value, solver_value):
     # Create a new MLflow Experiment
     mlflow.set_experiment("MLflow Ridge Regression Quickstart")
 
-    import os
-    dagshub.login(os.getenv("DAGSHUB_TOKEN"))  
+    dagshub_token = os.getenv("DAGSHUB_TOKEN")
+    print(dagshub_token)
+    dagshub.login(dagshub_token)  
 
     dagshub.init(repo_owner='built-by-dhruv', repo_name='MlFlow', mlflow=True)
     # Start an MLflow run
