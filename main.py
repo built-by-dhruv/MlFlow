@@ -64,13 +64,5 @@ def main(alpha_value, solver_value):
         )
 
 if __name__ == "__main__":
-    # Set up argument parsing
-    parser = argparse.ArgumentParser(description="Run Ridge Regression with specified hyperparameters.")
-    parser.add_argument("alpha", type=float, help="Regularization strength")
-    parser.add_argument("solver", type=str, help="Solver to use (e.g., 'auto', 'svd', 'cholesky', etc.)")
 
-    # Parse the command line arguments
-    args = parser.parse_args()
-
-    # Call the main function with parsed arguments
-    main(args.alpha, args.solver)
+    main(0.7, "auto")
