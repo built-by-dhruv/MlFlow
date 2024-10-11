@@ -46,8 +46,7 @@ def main(alpha_value, solver_value):
     mlflow.set_experiment("MLflow Ridge Regression Quickstart")
 
     
-# set MLFLOW_TRACKING_USERNAME=built-by-dhruv
-# set MLFLOW_TRACKING_PASSWORD=4df4d4552b3d66f9690f992546eee59f89a22356
+
 
     dagshub.init(repo_owner='built-by-dhruv', repo_name='MlFlow', mlflow=True)
     # Start an MLflow run
@@ -76,4 +75,4 @@ def main(alpha_value, solver_value):
 
 if __name__ == "__main__":
 
-    main(0.7, "auto")
+    main(0.9, "auto")
