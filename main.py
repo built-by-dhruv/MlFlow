@@ -1,11 +1,13 @@
 import argparse
 import mlflow
 from mlflow.models import infer_signature
+import mlflow.tracking
 import pandas as pd
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error, r2_score 
+import dagshub
 
 def main(alpha_value, solver_value):
     # Load the diabetes dataset (a regression dataset)
@@ -39,6 +41,9 @@ def main(alpha_value, solver_value):
     # Create a new MLflow Experiment
     mlflow.set_experiment("MLflow Ridge Regression Quickstart")
 
+    mlflow.tracking.set_tracking_uri("https://dagshub.com/built-by-dhruv/MlFlow.mlflow")
+    
+    dagshub.init(repo_owner='built-by-dhruv', repo_name='MlFlow', mlflow=True)
     # Start an MLflow run
     with mlflow.start_run():
         # Log the model hyperparameters
